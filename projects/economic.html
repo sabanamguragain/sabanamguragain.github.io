@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Nepal Economic Indicators (FY 2024/25) — Sabanam Guragain</title>
+<meta name="description" content="Interactive five-year analysis of Nepal's macroeconomy: GDP, inflation, trade, remittances, reserves, interest rates and the capital market. Nepal Rastra Bank data." />
+<meta property="og:title" content="Nepal Economic Indicators Dashboard (FY 2024/25)" />
+<meta property="og:description" content="Interactive macroeconomic dashboard built in Python from Nepal Rastra Bank data." />
+<meta property="og:image" content="../assets/img/economic-dashboard.png" />
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='22' fill='%232E5AAC'/%3E%3Ctext x='50' y='70' font-family='Georgia,serif' font-size='56' font-weight='700' fill='white' text-anchor='middle'%3ESG%3C/text%3E%3C/svg%3E" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="../assets/css/styles.css" />
+</head>
+<body>
+
+<header class="nav scrolled" id="nav">
+  <div class="nav__inner">
+    <a href="../index.html" class="nav__brand">SG<span>.</span></a>
+    <nav class="nav__links">
+      <a href="../index.html#projects">Projects</a>
+      <a href="education-disability.html">Education &amp; Disability</a>
+      <a href="../index.html#contact" class="nav__cta">Contact</a>
+    </nav>
+    <button class="nav__burger" id="burger" aria-label="Menu"><span></span><span></span><span></span></button>
+  </div>
+</header>
+
+<!-- PROJECT HERO -->
+<section class="phero">
+  <div class="blob blob--a anim-float" aria-hidden="true"></div>
+  <div class="blob blob--b" aria-hidden="true"></div>
+  <div class="wrap">
+    <a href="../index.html#projects" class="backlink">&larr; All projects</a>
+    <p class="kicker"><span class="station__i">02</span> Macroeconomic monitoring · Python</p>
+    <h1 class="phero__title">Nepal Economic <span class="gradient-text">Indicators</span></h1>
+    <p class="phero__lede">
+      A five-year read on whether Nepal's economy is strengthening. I compiled official annual
+      statistics from Nepal Rastra Bank into a structured six-sheet workbook, then built this
+      interactive dashboard across GDP, inflation, the external sector, government finance,
+      monetary policy and the capital market (FY 2020/21&ndash;2024/25).
+    </p>
+    <div class="findings findings--hero">
+      <article class="finding finding--good"><span class="finding__num">4.61%</span><span class="finding__label">Real GDP growth, FY 2024/25</span><span class="finding__note">Up from 3.67% a year earlier.</span></article>
+      <article class="finding"><span class="finding__num">2.20%</span><span class="finding__label">CPI inflation</span><span class="finding__note">Lowest in five years.</span></article>
+      <article class="finding"><span class="finding__num">$19.5B</span><span class="finding__label">Forex reserves</span><span class="finding__note">A record high, +27.7% YoY.</span></article>
+      <article class="finding"><span class="finding__num">+24.7%</span><span class="finding__label">NEPSE index</span><span class="finding__note">Capital market up to 2,795.</span></article>
+    </div>
+  </div>
+</section>
+
+<!-- CHARTS -->
+<section class="section section--tight">
+  <div class="wrap">
+    <p class="board__note board__note--top">Hover or tap any chart for exact figures.</p>
+    <div class="board" aria-label="Interactive macroeconomic charts">
+      <div class="panel"><h4>Real GDP growth</h4><p class="panel__sub">Annual, %</p><div class="panel__chart"><canvas id="c-gdp-growth"></canvas></div></div>
+      <div class="panel"><h4>Nominal GDP</h4><p class="panel__sub">Rs. billion, current prices</p><div class="panel__chart"><canvas id="c-nominal-gdp"></canvas></div></div>
+      <div class="panel"><h4>Consumer price inflation</h4><p class="panel__sub">Year-on-year, %</p><div class="panel__chart"><canvas id="c-inflation"></canvas></div></div>
+      <div class="panel"><h4>Foreign trade</h4><p class="panel__sub">Rs. billion</p><div class="panel__chart"><canvas id="c-trade"></canvas></div></div>
+      <div class="panel"><h4>Workers' remittances</h4><p class="panel__sub">Rs. billion</p><div class="panel__chart"><canvas id="c-remittances"></canvas></div></div>
+      <div class="panel"><h4>Foreign-exchange reserves</h4><p class="panel__sub">USD million</p><div class="panel__chart"><canvas id="c-forex"></canvas></div></div>
+      <div class="panel"><h4>Key interest rates</h4><p class="panel__sub">%</p><div class="panel__chart"><canvas id="c-rates"></canvas></div></div>
+      <div class="panel"><h4>NEPSE index</h4><p class="panel__sub">Closing, points</p><div class="panel__chart"><canvas id="c-nepse"></canvas></div></div>
+      <div class="panel"><h4>GDP by sector (2024/25)</h4><p class="panel__sub">Share of GDP, %</p><div class="panel__chart"><canvas id="c-sector"></canvas></div></div>
+      <div class="panel"><h4>Per-capita income</h4><p class="panel__sub">NRs.</p><div class="panel__chart"><canvas id="c-percapita"></canvas></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- META -->
+<section class="section project--alt">
+  <div class="wrap">
+    <div class="meta">
+      <div class="meta__col">
+        <h3>What it shows</h3>
+        <p>A single scan of the macro picture. Growth and reserves are up, inflation and lending rates are down, and the capital market has recovered, while the trade deficit, though improving, stays large. Built to be read by a non-specialist in under a minute.</p>
+      </div>
+      <div class="meta__col">
+        <h3>Data source</h3>
+        <ul class="tags"><li>Nepal Rastra Bank</li><li>Economic Research Department</li><li>Current Macroeconomic Situation 2024/25</li></ul>
+      </div>
+      <div class="meta__col">
+        <h3>Tools &amp; method</h3>
+        <ul class="tags"><li>Python</li><li>pandas</li><li>Chart.js</li><li>Excel (6-sheet workbook)</li><li>Time-series analysis</li></ul>
+        <a class="dl" href="../assets/downloads/generate_dashboard.py" download>Download the Python source &darr;</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section class="section contact" id="contact">
+  <div class="wrap contact__inner">
+    <p class="kicker kicker--light">Get in touch</p>
+    <h2 class="h2">Let's make the data useful.</h2>
+    <p class="contact__lead">Open to MEAL, M&amp;E and data roles in Nepal, or remote work from Nepal.</p>
+    <div class="contact__links">
+      <a href="mailto:sabnamguragain@gmail.com" class="btn btn--primary">sabnamguragain@gmail.com</a>
+      <a href="../index.html" class="btn btn--ghost">&larr; Back to portfolio</a>
+    </div>
+  </div>
+  <footer class="footer"><p>© <span id="year"></span> Sabanam Guragain · Kathmandu Valley, Nepal</p></footer>
+</section>
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.4/dist/chart.umd.min.js"></script>
+<script src="../assets/js/data.js"></script>
+<script src="../assets/js/charts.js"></script>
+<script src="../assets/js/main.js"></script>
+</body>
+</html>

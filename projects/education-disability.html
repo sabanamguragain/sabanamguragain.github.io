@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Nepal Education &amp; Disability Inclusion — Sabanam Guragain</title>
+<meta name="description" content="Interactive analysis of education access, equity and disability inclusion in Nepal. CBS Census 2021, MoEST Flash Reports, UNICEF, UNESCO-UIS, Washington Group framework." />
+<meta property="og:title" content="Nepal Education &amp; Disability Inclusion Dashboard" />
+<meta property="og:description" content="Where children with disabilities disappear from the education data, and why. Interactive dashboard built in Python." />
+<meta property="og:image" content="../assets/img/education-disability-dashboard.png" />
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='22' fill='%232E5AAC'/%3E%3Ctext x='50' y='70' font-family='Georgia,serif' font-size='56' font-weight='700' fill='white' text-anchor='middle'%3ESG%3C/text%3E%3C/svg%3E" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="../assets/css/styles.css" />
+</head>
+<body>
+
+<header class="nav scrolled" id="nav">
+  <div class="nav__inner">
+    <a href="../index.html" class="nav__brand">SG<span>.</span></a>
+    <nav class="nav__links">
+      <a href="../index.html#projects">Projects</a>
+      <a href="economic.html">Economic Indicators</a>
+      <a href="../index.html#contact" class="nav__cta">Contact</a>
+    </nav>
+    <button class="nav__burger" id="burger" aria-label="Menu"><span></span><span></span><span></span></button>
+  </div>
+</header>
+
+<!-- PROJECT HERO -->
+<section class="phero phero--accent">
+  <div class="blob blob--a anim-float" aria-hidden="true"></div>
+  <div class="blob blob--b" aria-hidden="true"></div>
+  <div class="wrap">
+    <a href="../index.html#projects" class="backlink">&larr; All projects</a>
+    <p class="kicker"><span class="station__i">01</span> Disability inclusion · Washington Group</p>
+    <h1 class="phero__title">Nepal Education &amp; <span class="gradient-text">Disability Inclusion</span></h1>
+    <p class="phero__lede">
+      Children with disabilities are statistically invisible in Nepal's enrolment data. This
+      interactive dashboard sets the recorded 0.94% against expected prevalence to expose an
+      identification failure, then traces the why, built from CBS Census 2021, MoEST Flash
+      Reports, UNICEF and UNESCO-UIS, applying the Washington Group Child Functioning framework.
+    </p>
+    <div class="findings findings--hero">
+      <article class="finding finding--alert"><span class="finding__num">0.94%</span><span class="finding__label">Children with disabilities in primary enrolment</span><span class="finding__note">Against an estimated 5&ndash;10% prevalence.</span></article>
+      <article class="finding"><span class="finding__num">85%</span><span class="finding__label">Cite physical inaccessibility</span><span class="finding__note">The most-named barrier to schooling.</span></article>
+      <article class="finding"><span class="finding__num">&lt;12%</span><span class="finding__label">Teachers trained in inclusive education</span><span class="finding__note">A critical capacity gap.</span></article>
+      <article class="finding"><span class="finding__num">15 pp</span><span class="finding__label">Literacy gender gap (M 84% · F 69%)</span><span class="finding__note">National literacy 76% at age 5+.</span></article>
+    </div>
+  </div>
+</section>
+
+<!-- CHARTS -->
+<section class="section section--tight">
+  <div class="wrap">
+    <p class="board__note board__note--top">Hover or tap any chart for exact figures.</p>
+    <div class="board" aria-label="Interactive education and disability charts">
+      <div class="panel panel--wide">
+        <h4>Children with disabilities as a share of enrolment, by level</h4>
+        <p class="panel__sub">Recorded share against the 5&ndash;10% estimated prevalence band (MoEST Flash)</p>
+        <div class="panel__chart"><canvas id="c-cwd"></canvas></div>
+      </div>
+      <div class="panel">
+        <h4>Literacy rate by category</h4>
+        <p class="panel__sub">Age 5+, Census 2021 (%)</p>
+        <div class="panel__chart"><canvas id="c-literacy"></canvas></div>
+      </div>
+      <div class="panel">
+        <h4>Gender Parity Index by level</h4>
+        <p class="panel__sub">Flash 2024/25 · 1.0 = parity</p>
+        <div class="panel__chart"><canvas id="c-gpi"></canvas></div>
+      </div>
+      <div class="panel panel--wide">
+        <h4>Barriers to education for children with disabilities</h4>
+        <p class="panel__sub">Share of respondents citing each barrier (%)</p>
+        <div class="panel__chart panel__chart--tall"><canvas id="c-barriers"></canvas></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- META -->
+<section class="section project--alt">
+  <div class="wrap">
+    <div class="meta">
+      <div class="meta__col">
+        <h3>What it shows</h3>
+        <p>The headline is the gap: 0.94% of primary enrolment recorded as children with disabilities, against an estimated 5&ndash;10% prevalence, an identification failure rather than an absence. The dashboard then traces the why, physical barriers, untrained teachers, and a persistent gender gap that widens at higher levels.</p>
+      </div>
+      <div class="meta__col">
+        <h3>Data sources</h3>
+        <ul class="tags"><li>CBS Census 2021</li><li>MoEST Flash Report 2024/25</li><li>UNICEF Nepal</li><li>UNESCO-UIS</li><li>NMICS 2019</li><li>Washington Group Module</li></ul>
+      </div>
+      <div class="meta__col">
+        <h3>Tools</h3>
+        <ul class="tags"><li>Python</li><li>pandas</li><li>Chart.js</li><li>Excel</li></ul>
+        <p class="meta__foot">Framed against Nepal's Inclusive Education Policy 2017, Disability Rights Act 2017 and SDG 4.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section class="section contact" id="contact">
+  <div class="wrap contact__inner">
+    <p class="kicker kicker--light">Get in touch</p>
+    <h2 class="h2">Let's make the data useful.</h2>
+    <p class="contact__lead">Open to MEAL, M&amp;E and data roles in Nepal, or remote work from Nepal.</p>
+    <div class="contact__links">
+      <a href="mailto:sabnamguragain@gmail.com" class="btn btn--primary">sabnamguragain@gmail.com</a>
+      <a href="../index.html" class="btn btn--ghost">&larr; Back to portfolio</a>
+    </div>
+  </div>
+  <footer class="footer"><p>© <span id="year"></span> Sabanam Guragain · Kathmandu Valley, Nepal</p></footer>
+</section>
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.4/dist/chart.umd.min.js"></script>
+<script src="../assets/js/data.js"></script>
+<script src="../assets/js/charts.js"></script>
+<script src="../assets/js/main.js"></script>
+</body>
+</html>
